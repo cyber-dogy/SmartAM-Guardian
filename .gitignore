@@ -1,7 +1,7 @@
-# 屏蔽数据集文件夹
-Causal_Image_Data/
+# 屏蔽数据集图片（保留metadata）
+Causal_Image_Data/images/
 
-# Python 相关（如果你使用 Python）
+# Python 相关
 __pycache__/
 *.py[cod]
 *$py.class

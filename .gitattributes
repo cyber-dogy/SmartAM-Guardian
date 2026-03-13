@@ -1,0 +1,5 @@
+# 让 Git 自动处理换行符
+* text=auto
+
+# Markdown 文件使用 LF
+*.md text eol=lf
