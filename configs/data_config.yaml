@@ -1,0 +1,66 @@
+# SmartAM Guardian 数据配置
+
+# 数据路径
+data_root: "Causal_Image_Data"
+metadata_file: "Causal_Image_Data/metadata.csv"
+
+# 数据加载
+batch_size: 16
+num_workers: 4
+img_size: 224
+val_ratio: 0.1  # 验证集占训练condition的比例
+
+# 使用的模态
+# 可选: rgb_v1, rgb_v2, ir_before, ir_after
+modalities:
+  - rgb_v1
+  - rgb_v2
+  - ir_before
+
+# 任务类型: binary (0/1) 或 multiclass (NOR/HEW/LEL)
+task: binary
+
+# 随机种子
+random_seed: 42
+
+# 角色定义（用于自动划分）
+roles:
+  # 源域训练
+  source_train:
+    - source_train
+    - source_repeat
+  
+  # 因果干预（作为训练异常样本）
+  causal_intervention:
+    - causal_intervention_high
+    - causal_intervention_low
+  
+  # 等效能量验证（测试模型是否真正理解物理）
+  causal_equiv:
+    - causal_equiv_test
+  
+  # 未见域测试
+  unseen_test:
+    - unseen_strategy_shift
+    - unseen_texture_shift
+    - unseen_param_shift
+    - unseen_composite_shift
+
+# 数据增强参数
+augmentation:
+  # MixUp参数
+  mixup_alpha: 0.2
+  
+  # 颜色抖动
+  color_jitter:
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.1
+    hue: 0.05
+  
+  # 随机翻转
+  hflip_prob: 0.5
+  vflip_prob: 0.3
+  
+  # 随机旋转
+  rotation_degrees: 15
