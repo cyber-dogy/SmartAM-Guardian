@@ -1,0 +1,25 @@
+# 屏蔽数据集文件夹
+Causal_Image_Data/
+
+# Python 相关（如果你使用 Python）
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
